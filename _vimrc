@@ -2,7 +2,7 @@ source $VIMRUNTIME/mswin.vim
 behave mswin
 
 if has('vim_starting')
-  set nocompatible               " Be iMproved
+  set nocompatible
   " Required:
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -10,11 +10,10 @@ endif
 " Required:
 call neobundle#rc(expand('~/.vim/bundle/'))
 
-" Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" My Bundles here:
+" Bundles
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neosnippet.vim'
@@ -24,11 +23,8 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'tomasr/molokai'
 
-" Required:
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
 NeoBundleCheck
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -87,10 +83,6 @@ set undofile
 set nobackup
 set noswapfile
 
-" Pop-up menu
-set pumheight=8
-set completeopt=menu,menuone,longest
-
 " The auto completion row menu in the bottom of the bar
 set wildignore+=*/tmp/*,*.so.*,*.swp,*.zip
 set wildignorecase
@@ -122,8 +114,6 @@ set guifont=Lucida_Console:h10:cANSI
 if has("gui_running")
   syntax on
   set hlsearch
-  " set guioptions-=T           " remove the toolbar
-  " set guioptions=ac
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
