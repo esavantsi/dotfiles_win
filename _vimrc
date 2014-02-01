@@ -3,14 +3,11 @@ behave mswin
 
 if has('vim_starting')
   set nocompatible
-  " Required:
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-" Required:
 call neobundle#rc(expand('~/.vim/bundle/'))
 
-" Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Bundles
@@ -27,15 +24,11 @@ filetype plugin indent on
 
 NeoBundleCheck
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General editor settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 scriptencoding utf-8
-
-if has('relativenumber')
-    set relativenumber
-endif
 
 set number
 set title
@@ -83,6 +76,10 @@ set undofile
 set nobackup
 set noswapfile
 
+" Splitting
+set splitbelow
+set splitright
+
 " The auto completion row menu in the bottom of the bar
 set wildignore+=*/tmp/*,*.so.*,*.swp,*.zip
 set wildignorecase
@@ -103,23 +100,31 @@ let g:molokai_original = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Key mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GUI settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 set t_Co=256
 colorscheme molokai
 syntax on
-set guifont=Lucida_Console:h10:cANSI
 
 if has("gui_running")
   syntax on
   set hlsearch
+  set guifont=Lucida_Console:h10:cANSI
 endif
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Cursor colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 set colorcolumn=80
 hi CursorLine guibg=#333333     " highlight bg color of current line
 hi CursorColumn guibg=#CCCCCC   " highlight cursor column
