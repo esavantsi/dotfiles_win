@@ -13,11 +13,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Bundles
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'tomasr/molokai'
 
 filetype plugin indent on
@@ -46,6 +43,9 @@ set clipboard=unnamed
 set foldenable
 set viewoptions=folds,options,cursor,unix,slash
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
+
+" Language
+language messages en
 
 " Cursor alignment
 set scrolloff=100
@@ -100,6 +100,20 @@ let g:molokai_original = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Autocommands
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("autocmd")
+    autocmd BufWritePost .vimrc source %
+    
+    " Match whitespaces visually with a red background
+    autocmd ColorScheme * highlight ExtraWhiteSpace ctermbg=red guibg=red
+    autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+    autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+    autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+endif
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <C-J> <C-W><C-J>
@@ -113,12 +127,12 @@ nnoremap <C-H> <C-W><C-H>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
 colorscheme molokai
-syntax on
 
 if has("gui_running")
   syntax on
   set hlsearch
-  set guifont=Lucida_Console:h10:cANSI
+  set guifont=Consolas:h10:cANSI
+  set guioptions=ac             " remove toolbar
 endif
 
 
