@@ -43,6 +43,8 @@ set clipboard=unnamed
 set foldenable
 set viewoptions=folds,options,cursor,unix,slash
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
+set encoding=utf-8
+set fileencoding=utf-8
 
 " Language
 language messages en
@@ -103,8 +105,6 @@ let g:molokai_original = 1
 " Autocommands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("autocmd")
-    autocmd BufWritePost .vimrc source %
-    
     " Match whitespaces visually with a red background
     autocmd ColorScheme * highlight ExtraWhiteSpace ctermbg=red guibg=red
     autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
